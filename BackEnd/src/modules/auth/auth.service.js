@@ -1,10 +1,10 @@
 import Customer from "../../db/models/Customer.model.js";
 import bcrypt from "bcrypt";
-export const register = async (req, res, next) => {
+export const register = async (req, res ) => {
   try {
-    const { name, email, phone, national_id, password, confirmPassword } = req.body;
+    const { name, email, phone, national_id, password, confirmPassword , terms  } = req.body;
 
-    if (!name || !email || !phone || !national_id || !password || !confirmPassword) {
+     if (!name || !email || !phone || !national_id || !password || !confirmPassword || !terms) {
       return res.status(400).json({ message: "كل الحقول مطلوبه" });
     }
 
@@ -38,14 +38,13 @@ export const register = async (req, res, next) => {
     });
 
   } catch (error) {
-    console.log(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
 // login
 
 
-export const Login = async (req, res, next) => {
+export const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -78,7 +77,6 @@ export const Login = async (req, res, next) => {
     });
 
   } catch (error) {
-    console.log(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };

@@ -18,12 +18,36 @@ export default function Login() {
 
  const navigate = useNavigate();
 
-  const onSubmit = (values) => {
-    console.log("LOGIN DATA: ", values);
+const onSubmit = async (values) => {
+  try {
+    const payload = {
+      email: values.email,
+      password: values.password,
+    };
 
-    navigate("/");
-  };
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "البريد الإلكتروني أو كلمة المرور غير صحيحة");
+      return;
+    }
+
+  
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    alert("تم تسجيل الدخول بنجاح!");
+    navigate("/"); 
+  } catch (err) {
+    console.error(err);
+    alert("حدث خطأ في السيرفر، حاول مرة أخرى");
+  }
+};
 
   return (
     <div className="login-page d-flex justify-content-center align-items-center">
