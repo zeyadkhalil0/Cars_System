@@ -4,13 +4,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start:dev" : "node --watch index.js" 
+    "start:dev": "node --watch index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
     "express": "^5.1.0",
     "mysql2": "^3.14.2",
     "sequelize": "^6.37.7"
