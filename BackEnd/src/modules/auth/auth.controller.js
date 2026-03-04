@@ -4,5 +4,5 @@ const router = Router()
 
 
 router.post("/register" ,authServices.register )
-router.get("/login" , authServices.Login)
+router.post("/login" , authServices.Login)
 export default router 
