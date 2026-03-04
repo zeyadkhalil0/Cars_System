@@ -16,5 +16,5 @@ export const connectionDB = async ()=>{
 }
 
 export const syncModels = async()=>{
-   await sequelize.sync({force :true})
+   await sequelize.sync()
 }
