@@ -2,7 +2,6 @@ import { Sequelize } from 'sequelize';
 export const sequelize = new Sequelize("cars_system" , "root" ,"" ,{
     host:"127.0.0.1" , 
     dialect: "mysql",
-   //  port:3307
 })
 
 
