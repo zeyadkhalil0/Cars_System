@@ -83,7 +83,7 @@ export const updateSale = async (req, res, next) => {
     const sale = await Sale.findByPk(id);
     if (!sale)
         return next(new Error(`the sale with ${id} not found`, { cause: 404 }))
-    await sale.update()
+    await sale.update(req.body)
     return resMsg(res, 201, "sale update success", sale)
 };
 
