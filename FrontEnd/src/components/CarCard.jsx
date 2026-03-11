@@ -1,7 +1,8 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import { Car } from "lucide-react";
 export default function CarCard({ car }) {
-  const { name, description, price, condition, image, mileage } = car;
+  const { id, name, description, price, condition, image, mileage } = car;
   const isNew = condition === "NEW";
   const [imgError, setImgError] = useState(false);
 
@@ -62,12 +63,13 @@ export default function CarCard({ car }) {
 
         {/* View Details Button */}
         <div className="mt-auto">
-          <button
+          <Link
+            to={`/car/${id}`}
             className="w-full bg-slate-50 hover:bg-slate-100 text-slate-900 text-sm font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 group/btn"
           >
             <span>عرض التفاصيل</span>
             <span className="text-lg group-hover/btn:translate-x-[-4px] transition-transform">←</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

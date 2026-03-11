@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link} from "react-router-dom";
 import { ShoppingCart, User, Car, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -64,7 +64,9 @@ export default function Navbar() {
             className="p-3 rounded-full bg-orange-50 text-orange-500 hover:bg-orange-100 transition-colors"
             aria-label="الملف الشخصي"
           >
+            <NavLink to={"/login"}>
             <User className="w-5 h-5" />
+            </NavLink>
           </button>
 
           {/* Mobile hamburger */}

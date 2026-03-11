@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import InventoryPage from "./pages/InventoryPage";
+import CarDetailsPage from "./pages/CarDetailsPage";
 import "./App.css";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/car/:id" element={<CarDetailsPage />} />
         </Routes>
         <AuthRoutes />
         <DashboardRoutes />
